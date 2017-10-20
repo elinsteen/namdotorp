@@ -14,10 +14,12 @@ var torp;
 var ettavtorpen = document.getElementById('ettavtorpen');
 var barnen = dropdown[0].getElementsByTagName('a');
 var soflink = document.getElementById('soflink');
+var torpknapp = document.getElementById('torpbutton')
 
 var torplinks = [];
 var torplinks2 = [];
 var torplinks3 = [soflink];
+// var torplinks4 = [torpknapp];
 // console.log(torplinks3[0]);
 var torplinkhash;
 var torpsida = document.getElementById('torplista');
@@ -55,7 +57,19 @@ $.ajax({
                   ettavtorpen.innerHTML += row.bild;
                 }
                 ettavtorpen.innerHTML += row.content;
+                ettavtorpen.innerHTML += "<a href='#torp' id='torpbutton'><span class='centertext'>&#8617<span></a>";
                 ettavtorpen.style.display = "block";
+                var torpknapp = document.getElementById('torpbutton');
+                // var torpknapplista = [torpknapp];
+                // addtorplinkclick(torpknapplista, 0);
+                torpknapp.addEventListener('click', function() {
+                  for (i = 0; i < sidor.length; i++) {
+                  hide(sidor[i]);
+                }
+                var torpsida = document.getElementById('torp');
+                torpsida.style.display = "block";
+                })
+
               }
             });
             }
@@ -79,6 +93,7 @@ $.ajax({
             }
             //add click to single link
             addtorplinkclick(torplinks3, 0);
+            // addtorplinkclick(torplinks4, 0);
 
 
 
